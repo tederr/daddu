@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simran & Dadaji - Starlit Memory</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(#5c4434, #2e1c14);
+      font-family: 'Georgia', serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text-slide {
+      background: #ffffff;
+      color: #3d2e1e;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      font-size: 1.3rem;
+      line-height: 1.8;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+      text-align: center;
+    }
+
+    .text-slide.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="storyContainer"></div>
+
+  <script>
+    const story = [
+      "Kabhi kabhi... ek awaaz, ek pal, ek muskaan... saari zindagi ban jaati hai.",
+      "Simran — ek chhoti si nanhi pari, jiske liye poori duniya sirf ek chehre mein simat jaati thi... Dadaji.",
+      "Unki god hi uska aasman thi, unka kandha uska pahad, aur unki kahaniyaan... jaise sapno ka jadoo.",
+      "2010 ki ek shaam, Dilli ki hawaon mein ek thandi si mithaas thi.",
+      "Dadaji ne pyar se bulaya, 'Geetaaa...',",
+      "Aur tab, Simran ne apni sabse pyari, sabse nannhi cheekh lagayi — 'GIYAA...',",
+      "Dadaji ke chehre par ek chamak thi... jaise waqt ruk gaya ho.",
+      "Shaam dhalti rahi, kahaniyaan bunti rahi. Har kahaani mein Simran hoti thi — ek chhoti si sherni.",
+      "Jab thak jaati thi, to Dadaji ke kandhe par so jaati thi... jaise duniya ka sabse surakshit kona wahi ho.",
+      "Saal beete, mausam badle... lekin Dadaji ki yaadein uski saansen ban gayi.",
+      "Aaj bhi... jab Simran khidki ke paas baithti hai, toh hawa ek purani si awaaz le aati hai...",
+      "'GIYAA...',",
+      "Aisa lagta hai jaise Dadaji ke haath ab bhi uske sir par ho...",
+      "Aankhon mein nami hoti hai... par usme ek muskaan chhupi hoti hai.",
+      "Kyuki Simran jaanti hai — kuch rishte kabhi khatam nahi hote...",
+      "Wo sirf yaadon mein aur gehre ho jaate hain.",
+      "Aur Simran... hamesha Dadaji ki chhoti sbse pyari 'GUDIYA' rahegi. 💛",
+      "Kabhi kabhi, hum kisi ko khona nahi chahte, lekin waqt humein alag kar deta hai.",
+      "Aur tab yaadein... humein fir se jodne lagti hain.",
+      "Simran ke liye, Dadaji sirf ek rishta nahi the... wo uski duniya the.",
+      "Zindagi ke is safar mein, Dadaji ka pyaar Simran ka raasta roshan karta rahega... har mod par.",
+      "— The End —"
+    ];
+
+    const container = document.getElementById("storyContainer");
+
+    let index = 0;
+    function addNextSlide() {
+      if (index < story.length) {
+        const slide = document.createElement("div");
+        slide.className = "text-slide";
+        slide.textContent = story[index];
+        container.appendChild(slide);
+        setTimeout(() => slide.classList.add("show"), 50);
+        index++;
+      }
+    }
+
+    document.body.addEventListener("click", addNextSlide);
+    window.onload = addNextSlide;
+  </script>
+</body>
+</html>
